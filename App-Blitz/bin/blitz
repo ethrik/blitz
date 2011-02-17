@@ -1,0 +1,40 @@
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+use feature qw(switch);
+use App::Blitz;
+
+my @parv = @ARGV;
+$parv[1] ||= '.';
+
+given (lc($parv[0])) {
+	when ('create') { create($parv[1]); }
+	when ('build') { build($parv[1]); }
+	when ('serve') { serve($parv[1]); }
+	default { help($parv[1]); }
+}
+
+sub create {
+	my ( $dir ) = @_;
+	if (-e $dir ) { fill($dir); }
+	else { mkdir $dir; fill($dir); }
+}
+
+sub fill {
+	my $dir = @_;
+	open my $index, '<', "$dir/index.haml";
+	print {$index} <<ENDINDEX;
+%h1 Hello, welcome to the example index file!
+%h2 This is a very basic example to show off just how useful Blitz is, please enjoy!
+
+ENDINDEX
+	close $index;
+	mkdir "$dir/css";
+	open my $css, '<', "$dir/css/style.sass";
+	print {$css} <<ENDCSS;
+/* blah, some CSS. kthxbai. */
+
+ENDCSS
+
+}

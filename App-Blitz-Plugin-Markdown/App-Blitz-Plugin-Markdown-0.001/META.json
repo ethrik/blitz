@@ -1,0 +1,33 @@
+{
+   "abstract" : "Markdown syntax parser for App::Blitz",
+   "author" : [
+      "Alexandria Marie Wolcott <alyx@woomoo.org>"
+   ],
+   "dynamic_config" : 0,
+   "generated_by" : "Dist::Zilla version 4.200001, CPAN::Meta::Converter version 2.110240",
+   "license" : [
+      "bsd"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "App-Blitz-Plugin-Markdown",
+   "prereqs" : {
+      "configure" : {
+         "requires" : {
+            "ExtUtils::MakeMaker" : "6.31"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "Carp" : 0,
+            "Text::Markdown" : 0,
+            "UNIVERSAL" : 0
+         }
+      }
+   },
+   "release_status" : "stable",
+   "version" : "0.001"
+}
+
